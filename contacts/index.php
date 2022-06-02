@@ -25,8 +25,10 @@ $APPLICATION->SetTitle("Контакты");
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"FIELD_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "PROPERTY_address.PROPERTY_city",
+			1 => "PROPERTY_address.PROPERTY_street",
+			2 => "PROPERTY_address.PROPERTY_house",
+			3 => "PROPERTY_address.PROPERTY_flat",
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "Y",

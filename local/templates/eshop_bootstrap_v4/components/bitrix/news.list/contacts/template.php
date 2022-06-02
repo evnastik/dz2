@@ -42,8 +42,9 @@ $this->setFrameMode(true);
         <? endforeach; ?>
         <? foreach ($arItem["DISPLAY_PROPERTIES"] as $pid => $arProperty): ?>
             <?
-            if ($arProperty["CODE"] == "address") {
+            if ($arProperty["CODE"] == "address") {/*
                 if ($arItem["PROPERTIES"]["address"]["VALUE"]) {
+
                     $props = CIBlockElement::GetByID($arItem["PROPERTIES"]["address"]["VALUE"])->GetNextElement()->GetProperties();
                     ?>
                     <small>
@@ -52,19 +53,31 @@ $this->setFrameMode(true);
                         <?= $props["house"]["NAME"] ?>:&nbsp;<?= $props["house"]["~VALUE"] ?><br/>
                         <?= $props["flat"]["NAME"] ?>:&nbsp;<?= $props["flat"]["~VALUE"] ?>
                     </small><br/>
-                <? }
+                <? } */
             } else {
                 ?>
                 <small>
                     <?= $arProperty["NAME"] ?>:&nbsp;
-                    <? if (is_array($arProperty["DISPLAY_VALUE"])):?>
+                    <? if (is_array($arProperty["DISPLAY_VALUE"])): ?>
                         <?= implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]); ?>
-                    <? else:?>
+                    <? else: ?>
                         <?= $arProperty["DISPLAY_VALUE"]; ?>
                     <? endif ?>
                 </small><br/>
             <? } ?>
         <? endforeach; ?>
+        <small>
+            <?= GetMessage("IBLOCK_FIELD_CITY") ?>:&nbsp;<?= $arItem["PROPERTY_ADDRESS_PROPERTY_CITY_VALUE"] ?>
+        </small><br/>
+        <small>
+            <?= GetMessage("IBLOCK_FIELD_STREET") ?>:&nbsp;<?= $arItem["PROPERTY_ADDRESS_PROPERTY_STREET_VALUE"] ?>
+        </small><br/>
+        <small>
+            <?= GetMessage("IBLOCK_FIELD_HOUSE") ?>:&nbsp;<?= $arItem["PROPERTY_ADDRESS_PROPERTY_HOUSE_VALUE"] ?>
+        </small><br/>
+        <small>
+            <?= GetMessage("IBLOCK_FIELD_FLAT") ?>:&nbsp;<?= $arItem["PROPERTY_ADDRESS_PROPERTY_FLAT_VALUE"] ?>
+        </small><br/>
         </p>
     <? endforeach; ?>
     <? if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>

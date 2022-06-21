@@ -1,0 +1,20 @@
+Host: dz2
+Date: 2022-06-21 14:34:23
+Module: 
+Ошибка добавления записи (Обязательное поле "Привязка к разделам" не заполнено.<br>).
+    MyClass::OnAfterIBlockElementAddHandler < ExecuteModuleEventEx < CAllIBlockElement::Add < require
+	C:\Users\79826\Downloads\OpenServer\domains\dz2\bitrix\modules\main\classes\general\module.php:465
+	C:\Users\79826\Downloads\OpenServer\domains\dz2\bitrix\modules\iblock\classes\general\iblockelement.php:3658
+	C:\Users\79826\Downloads\OpenServer\domains\dz2\bitrix\modules\iblock\admin\iblock_element_edit.php:1060
+	C:\Users\79826\Downloads\OpenServer\domains\dz2\bitrix\admin\iblock_element_edit.php:1
+----------
+Host: dz2
+Date: 2022-06-21 14:34:35
+Module: 
+Запись с кодом 324 добавлена.
+    MyClass::OnAfterIBlockElementAddHandler < ExecuteModuleEventEx < CAllIBlockElement::Add < require
+	C:\Users\79826\Downloads\OpenServer\domains\dz2\bitrix\modules\main\classes\general\module.php:465
+	C:\Users\79826\Downloads\OpenServer\domains\dz2\bitrix\modules\iblock\classes\general\iblockelement.php:3658
+	C:\Users\79826\Downloads\OpenServer\domains\dz2\bitrix\modules\iblock\admin\iblock_element_edit.php:1060
+	C:\Users\79826\Downloads\OpenServer\domains\dz2\bitrix\admin\iblock_element_edit.php:1
+----------

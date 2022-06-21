@@ -42,12 +42,18 @@ class ylab_import extends CModule
     public function DoInstall()
     {
         global $DOCUMENT_ROOT, $APPLICATION;
-        $this->installDB();
-        $this->installFiles();
+        if($_GET['step'] == 3) {
+            $this->installDB();
+            $this->installFiles();
+            ModuleManager::registerModule($this->MODULE_ID);
+            $APPLICATION->IncludeAdminFile(Loc::getMessage('YLAB_IMPORT_MODULE_STEP3'), $DOCUMENT_ROOT."/local/modules/ylab.import/install/step3.php");
+        }elseif ($_GET['step'] == 2){
+            $APPLICATION->IncludeAdminFile(Loc::getMessage('YLAB_IMPORT_MODULE_STEP2'), $DOCUMENT_ROOT."/local/modules/ylab.import/install/step2.php");
 
-        ModuleManager::registerModule($this->MODULE_ID);
-        $APPLICATION->IncludeAdminFile("Установка модуля ylab.import: шаг 1", $DOCUMENT_ROOT."/local/modules/ylab.import/install/step.php");
-        return true;
+        }else{
+            $APPLICATION->IncludeAdminFile(Loc::getMessage('YLAB_IMPORT_MODULE_STEP1'), $DOCUMENT_ROOT."/local/modules/ylab.import/install/step.php");
+        }
+
     }
 
     /**
@@ -132,7 +138,10 @@ class ylab_import extends CModule
             $oConn->executeSqlBatch($sQuery);
         }
 
-        COption::SetOptionString($this->MODULE_ID, "limit_to_import", '200');
+        COption::SetOptionString($this->MODULE_ID, "limit_to_import", $_GET["limit_to_import"]);
+        COption::SetOptionString($this->MODULE_ID, "textarea", $_GET["textarea"]);
+        COption::SetOptionString($this->MODULE_ID, "password", $_GET["password"]);
+        COption::SetOptionString($this->MODULE_ID, "checkbox", $_GET["checkbox"]);
 
         return true;
     }
